@@ -3,14 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const Card = ({ data }) => {
-  console.log(data)
-
   return (
     <div className='cursor-pointer sm:p-3 sm:hover:shadow-slate-400 sm:shadow-md rounded sm:border sm:border-slate-400 m-2 transition-shadow duration-200 group'>
-      <Link href={`/movie/${data.id}`}>
+      <Link href={`/media/${data.id}`}>
         <Image
           className='sm:rounded-t-lg group-hover:opacity-80 duration-200'
-          src={`https://static.namava.ir${data.imageUrl}`}
+          src={data.imageFullUrl || `https://static.namava.ir${data.imageUrl}`}
           placeholder='blur'
           blurDataURL='spinner.svg'
           alt='image is not available!'
